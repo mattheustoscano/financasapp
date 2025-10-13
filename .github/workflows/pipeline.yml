@@ -1,37 +1,49 @@
 name: ASP.NET API CI/CD
 
-on:
-  push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
+on: 
+   push:
+     branches: ["master"]
+   pull_request:
+     branches: ["master"]
 
 jobs:
-  build:
-    name: Complicação
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout do código
-        uses: actions/checkout@v3
-      - name: Compilar
-        run: echo "Compilando aplicação"
 
-  test:
-    name: Testes
-    runs-on: ubuntu-latest
-    needs: build
-    steps: 
+   build:
+      name: Compilação
+      runs-on: ubuntu-latest
+      steps:
       - name: Checkout do código
         uses: actions/checkout@v3
-      - name: Executar os testes
-        run: echo "Rodando os testes..."
-  
-  deploy:
-    name: Implantação
-    runs-on: ubuntu-latest
-    needs: test
-    steps: 
-      - name: Checkout do código
-        uses: actions/checkout@v3
-      - name: Impantação da aplicação
-        run: echo "Implantando o sistema em produção..."
+
+      - name: Instalar .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restaurar dependências
+        run: dotnet restore
+
+      - name: Compilar a aplicação
+        run: dotnet build --configuration Release --no-restore
+       
+   test:
+      name: Testes
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+          - name: Checkout do código
+            uses: actions/checkout@v3
+          - name: Executar os testes
+            run: echo "Rodando os testes..."
+   
+   deploy:
+      name: Implantação
+      runs-on: ubuntu-latest
+      needs: test
+      steps:
+          - name: Checkout do código
+            uses: actions/checkout@v3
+          - name: Implantação da aplicação
+            run: echo "Implatando o sistema em produção..."
+
+
