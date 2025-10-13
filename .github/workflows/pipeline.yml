@@ -20,11 +20,26 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Mostrar estrutura do repositório
+        run: |
+          echo "Listando estrutura de diretórios..."
+          ls -R
+
       - name: Restaurar dependências
         run: dotnet restore
 
-      - name: Compilar a aplicação
-        run: dotnet build --configuration Release --no-restore
+      - name: Compilar e publicar a aplicação
+        run: dotnet publish ./FinancasApp.API/FinancasApp.API.csproj --configuration Release --output ./output
+
+      - name: Verificar saída do publish
+        run: ls -R ./output
+
+      - name: Exportar artefatos de build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: ./output
+          retention-days: 7
        
    test:
       name: Testes
@@ -45,5 +60,6 @@ jobs:
             uses: actions/checkout@v3
           - name: Implantação da aplicação
             run: echo "Implatando o sistema em produção..."
+
 
 
