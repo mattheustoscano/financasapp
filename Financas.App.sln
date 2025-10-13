@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Domain", "Finan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data", "FinancasApp.Infra.Data\FinancasApp.Infra.Data.csproj", "{64232572-44CE-4153-96D7-DA486BB79943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data.Tests", "FinanceApp.Infra.Data.Test\FinancasApp.Infra.Data.Tests.csproj", "{39C291E4-A463-4FCE-8B04-E85361AF8A56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data.Tests", "..\..\..\..\Users\matth\Downloads\FinanceApp.Infra.Data.Tests\FinancasApp.Infra.Data.Tests.csproj", "{53E7295F-A429-A3DF-08D5-2F7B5DF589B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{64232572-44CE-4153-96D7-DA486BB79943}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64232572-44CE-4153-96D7-DA486BB79943}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64232572-44CE-4153-96D7-DA486BB79943}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39C291E4-A463-4FCE-8B04-E85361AF8A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39C291E4-A463-4FCE-8B04-E85361AF8A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39C291E4-A463-4FCE-8B04-E85361AF8A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39C291E4-A463-4FCE-8B04-E85361AF8A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E7295F-A429-A3DF-08D5-2F7B5DF589B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E7295F-A429-A3DF-08D5-2F7B5DF589B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E7295F-A429-A3DF-08D5-2F7B5DF589B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E7295F-A429-A3DF-08D5-2F7B5DF589B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
