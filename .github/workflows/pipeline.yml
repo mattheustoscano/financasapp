@@ -57,9 +57,23 @@ jobs:
       - name: Restaurar dependências
         run: dotnet restore
 
-      - name: Executar testes unitários
-        run: dotnet test ./FinancasApp.Infra.Data.Tests/FinancasApp.Infra.Data.Tests.csproj --no-restore --verbosity normal --configuration Release
-   
+      - name: Executar testes (xUnit)
+        run: |
+          mkdir -p TestResults
+          dotnet test ./FinancasApp.Infra.Data.Tests/FinancasApp.Infra.Data.Tests.csproj \
+            --no-restore \
+            --configuration Release \
+            --logger "trx;LogFileName=results.trx" \
+            --logger "html;LogFileName=results.html" \
+            --results-directory ./TestResults
+
+      - name: Exportar relatório de testes
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: ./TestResults
+          retention-days: 7
+
    deploy:
       name: Implantação
       runs-on: ubuntu-latest
