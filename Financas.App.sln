@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Domain", "Finan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data", "FinancasApp.Infra.Data\FinancasApp.Infra.Data.csproj", "{64232572-44CE-4153-96D7-DA486BB79943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data.Test", "FinanceApp.Infra.Data.Test\FinancasApp.Infra.Data.Test.csproj", "{39C291E4-A463-4FCE-8B04-E85361AF8A56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data.Tests", "FinanceApp.Infra.Data.Test\FinancasApp.Infra.Data.Tests.csproj", "{39C291E4-A463-4FCE-8B04-E85361AF8A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
