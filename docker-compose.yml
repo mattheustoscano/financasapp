@@ -1,36 +1,42 @@
-# Configurando um servico de rede no docker
+#Configurando um servico de rede no docker
 networks:
-  financasapp-network:   # nome da rede
-    driver: bridge       # rede local interna do docker
-# configurando os servicos containers
+  financasapp-network:    #Nome da rede
+     driver: bridge       #Rede local interna do docker
+
+#Configurando os servicos (containers)
 services:
+
+  sqlserver: #Nome do servico ('hostname' dentro da rede)
+      image: mcr.microsoft.com/mssql/server:2022-latest #Imagem oficial do sqlserver 2022
+      container_name: financasapp-sqlserver #Nome do container
+      networks: #Rede em que o servico ira rodar
+         - financasapp-network
+      ports:
+         - "1434:1433" #porta externa (windows) : porta interna (docker)
+      environment:
+         - ACCEPT_EULA=Y            #Aceite dos termos de licenca do sqlserver
+         - SA_PASSWORD=Coti@2025    #Senha do usuario SA (system admin)
   
-  sqlserver: # Nome do servico hostname dentro da rede
-    image: mcr.microsoft.com/mssql/server:2022-latest # Imagem oficial do sqlserver 2022
-    container_name: financasapp-sqlserver # Nome do container
-    networks: # Rede em que o servico ira rodar
-      - financasapp-network  
-    ports:
-      - "1434:1433" # porta externa windows pode gerar conflito com outros containers porta interna docker porta interna nao gera conflito com outros containers
-    environment: 
-      - ACCEPT_EULA=Y # Aceite dos termos de licenca do sqlserver
-      - SA_PASSWORD=Coti@2025 # Senha do usuario SA system admin
-  
-  rabbitmq: # Nome do servico hostname dentro da rede
-    image: rabbitmq:3-management # Imagem oficial do rabbitmq
-    container_name: financasapp-rabbitmq # Nome do container
-    networks: # Rede em que o servico ira rodar
-      - financasapp-network
-    ports:
-      - "5672:5672" # Porta padrao para a comunicacao do sistema com o RabbitMQ
-      - "15672:15672" # Porta do painel de administracao do RabbitMQ
-  app: # Nome do servico hostname dentro da rede
-    build: # Indica que o container sera construido a partir do dockerfile
-      context: . # Diretorio atual do projeto
-      dockerfile: FinancasApp.API/Dockerfile # Local do Dockerfile
-    container_name: financas-app-api # Nome do container
-    ports: 
-      - "8081:8080"
-    depends_on: # Define dependencias ordem de inicializacao dos containers
-      - sqlserver # A aplicacao depende do servico do sqlserver
-      - rabbitmq  # A aplicacao depende do servico do rabbitmq
+  rabbitmq: #Nome do servico ('hostname' dentro da rede)
+      image: rabbitmq:3-management #Imagem oficial do rabbitmq
+      container_name: financasapp-rabbitmq #Nome do container
+      networks: #Rede em que o servico ira rodar
+         - financasapp-network
+      ports:
+         - "5672:5672" #Porta padrao para comunicacao do sistema com o RabbitMQ
+         - "15672:15672" #Porta do painel de administracao do RabbitMQ
+
+  app: #Nome do servico ('hostname' dentro da rede)
+      build: #Indica que o container sera construido a partir do Dockerfile
+         context: . #Diretorio atual do projeto
+         dockerfile: FinancasApp.API/Dockerfile #Local do arquivo Dockerfile
+      container_name: financasapp-api #Nome do container
+      networks: #Rede em que o servico ira rodar
+         - financasapp-network
+      ports:
+         - "8081:8080" #porta externa (windows) : porta interna (docker)
+      depends_on: #Define dependencias (ordem de inicializacao dos containers)
+         - sqlserver #A aplicacao depende do servico do sqlserver
+         - rabbitmq  #A aplicacao depende do servico do rabbitmq
+      environment: #Define variaveis de ambiente do projeto
+         - ConnectionStrings__FinancasApp=Data Source=sqlserver,1433;Initial Catalog=master;User ID=sa;Password=Coti@2025;Encrypt=False

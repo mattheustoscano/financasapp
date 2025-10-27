@@ -1,6 +1,11 @@
 ﻿using FinancasApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FinancasApp.Infra.Data.Mappings
 {
@@ -8,9 +13,9 @@ namespace FinancasApp.Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Movimentacao> builder)
         {
-            builder.ToTable("MOVIMENTACAO");
+            builder.ToTable("MOVIMENTACAO"); //nome da tabela
 
-            builder.HasKey(m => m.Id); //chave primaria
+            builder.HasKey(m => m.Id); //chave primária
 
             builder.Property(m => m.Id).HasColumnName("ID");
             builder.Property(m => m.Nome).HasColumnName("NOME").HasMaxLength(150);
@@ -20,12 +25,10 @@ namespace FinancasApp.Infra.Data.Mappings
             builder.Property(m => m.CategoriaId).HasColumnName("CATEGORIA_ID");
 
             //mapeamento do relacionamento
-            builder.HasOne(m => m.Categoria) //Movimentaçao tem uma Categoria
-                   .WithMany(c => c.Movimentacoes) //Categoria tem muitas Movimentações
-                   .HasForeignKey(m => m.CategoriaId) //Chave estrangeira em Movimentacao
-                   .OnDelete(DeleteBehavior.Restrict); //Não deletar movimentações ao deletar categoria
-
-
+            builder.HasOne(m => m.Categoria) //Movimentação TEM 1 Categoria
+                .WithMany(c => c.Movimentacoes) //Categoria TEM MUITAS Movimentações
+                .HasForeignKey(m => m.CategoriaId) //Chave estrangeira
+                .OnDelete(DeleteBehavior.Restrict); //Não permite excluir de houver registros relacionados
         }
     }
 }

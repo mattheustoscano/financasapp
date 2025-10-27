@@ -1,6 +1,11 @@
 ﻿using FinancasApp.Domain.Interfaces.Repositories;
 using FinancasApp.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore.Storage;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FinancasApp.Infra.Data.Repositories
 {
@@ -18,7 +23,7 @@ namespace FinancasApp.Infra.Data.Repositories
 
         public void Commit()
         {
-            if (transaction != null)
+            if(transaction != null)
                 transaction.Commit();
         }
 
@@ -34,7 +39,7 @@ namespace FinancasApp.Infra.Data.Repositories
 
         public void Dispose()
         {
-            if (transaction != null)
+            if(transaction != null)
                 transaction.Dispose();
 
             dataContext.Dispose();

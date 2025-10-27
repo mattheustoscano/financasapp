@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.API", "FinancasApp.API\FinancasApp.API.csproj", "{2FBBE9EC-494E-41F6-B7A9-8C461F81C8E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{BCD349CA-75A2-45F6-A977-6812B5C3AE0B}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Domain", "FinancasApp.Domain\FinancasApp.Domain.csproj", "{63F35A5E-444D-4D16-BEF2-5233363086A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data", "FinancasApp.Infra.Data\FinancasApp.Infra.Data.csproj", "{368A0AE6-FB4A-47BF-908B-0FFBE36263AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancasApp.Infra.Data.Tests", "FinancasApp.Infra.Data.Tests\FinancasApp.Infra.Data.Tests.csproj", "{ED596701-5D93-4660-86F7-522C85625480}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FBBE9EC-494E-41F6-B7A9-8C461F81C8E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBBE9EC-494E-41F6-B7A9-8C461F81C8E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBBE9EC-494E-41F6-B7A9-8C461F81C8E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBBE9EC-494E-41F6-B7A9-8C461F81C8E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F35A5E-444D-4D16-BEF2-5233363086A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F35A5E-444D-4D16-BEF2-5233363086A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F35A5E-444D-4D16-BEF2-5233363086A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F35A5E-444D-4D16-BEF2-5233363086A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{368A0AE6-FB4A-47BF-908B-0FFBE36263AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{368A0AE6-FB4A-47BF-908B-0FFBE36263AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{368A0AE6-FB4A-47BF-908B-0FFBE36263AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{368A0AE6-FB4A-47BF-908B-0FFBE36263AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED596701-5D93-4660-86F7-522C85625480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED596701-5D93-4660-86F7-522C85625480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED596701-5D93-4660-86F7-522C85625480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED596701-5D93-4660-86F7-522C85625480}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -32,7 +32,7 @@ namespace FinancasApp.Infra.Data.Migrations
                     DATA = table.Column<DateOnly>(type: "date", nullable: true),
                     VALOR = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     CATEGORIA_ID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TIPO = table.Column<int>(type: "int", nullable: false)
+                    TIPO = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

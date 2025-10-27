@@ -2,8 +2,13 @@
 using FinancasApp.Domain.Entities;
 using FinancasApp.Domain.Interfaces.Repositories;
 using FinancasApp.Infra.Data.Repositories;
-using FinancasApp.Infra.Data.Test.Contexts;
+using FinancasApp.Infra.Data.Tests.Contexts;
 using FluentAssertions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FinancasApp.Infra.Data.Tests.Facts
 {
@@ -112,6 +117,3 @@ namespace FinancasApp.Infra.Data.Tests.Facts
         }
     }
 }
-
-
-
